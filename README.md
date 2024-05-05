@@ -1,14 +1,15 @@
 # Sales Forecasting with Prophet and Streamlit
 
-This project provides sales forecasting for various materials and plants using Facebook's Prophet model, enhanced with hyperparameter tuning using Optuna. The app is built using Streamlit.
+This project is a sales forecasting application using Facebook's Prophet model, enhanced with hyperparameter tuning using Optuna, and built with a user-friendly interface in Streamlit.
 
 ## Table of Contents
 
-1. [Features](#features)
-2. [Project Structure](#project-structure)
-3. [Installation](#installation)
-4. [Usage](#usage)
-5. [Files and Code Explanation](#files-and-code-explanation)
+1. [Overview](#overview)
+2. [Features](#features)
+3. [Project Structure](#project-structure)
+4. [Installation](#installation)
+5. [Usage](#usage)
+6. [Files and Code Explanation](#files-and-code-explanation)
     - [sales_forecasting](#sales_forecasting)
         - [app.py](#app-py)
         - [forecast.py](#forecast-py)
@@ -18,13 +19,19 @@ This project provides sales forecasting for various materials and plants using F
     - [requirements](#requirements)
     - [readme](#readme)
     - [license](#license)
-6. [License](#license)
+7. [License](#license)
+
+## Overview
+
+This project uses historical sales data to predict future sales for various materials and plants. It leverages the powerful Prophet forecasting tool from Facebook to model the data, using Optuna to optimize hyperparameters for the best possible model performance. The application is built using Streamlit, providing a clean and interactive user interface.
 
 ## Features
 
-- **Sales Data**: Uses historical sales data to predict future sales.
-- **Hyperparameter Tuning**: Uses Optuna to optimize Prophet hyperparameters.
-- **Streamlit Interface**: User-friendly interface for selecting plant-material combinations and viewing forecasts.
+- **Hyperparameter Tuning**: Optuna optimizes Prophet's hyperparameters for improved forecasting accuracy.
+- **User Interface**: Streamlit provides an intuitive interface for selecting plant-material combinations and viewing forecasts.
+- **Forecasting**: Prophet forecasts future sales based on historical data.
+- **Visualization**: The application displays interactive plots and metrics to evaluate the forecasts.
+- **Tables**: Provides detailed tables comparing actual sales with forecasted sales.
 
 ## Project Structure
 
@@ -68,29 +75,50 @@ This directory contains the core functionality of the project.
 
 #### app.py
 
-`app.py` is the main file for the Streamlit application. It initializes the app, handles user input, triggers model training, and displays the results. 
+`app.py` is the main Streamlit application that controls the user interface and functionality.
 
-- **Functionality**:
-    - The app initializes with an introduction and a button to train the model.
-    - The `compute_forecasts` function is defined and cached to perform forecasting for each plant and material combination.
-    - The function `forecast_prophet_optimized` is used for optimized forecasting.
-    - The user can select from various plant-material combinations to view the corresponding forecast, error metrics, hyperparameters, and detailed table.
+- **Train Model**:
+    - The user clicks the "Train Model" button to initiate the forecasting process.
+    - The `compute_forecasts` function generates forecasts for each plant-material combination.
+    - The results, including plots, metrics, and tables, are stored in `st.session_state`.
+  
+- **Dropdown Menu**:
+    - The user selects a plant-material combination from the dropdown menu to view specific results.
+
+- **Visualization**:
+    - The function `plotly_chart` displays interactive plots using Plotly.
+  
+- **Metrics**:
+    - The application displays RMSE and MAE metrics for the forecasts.
+
+- **Table**:
+    - The application displays a table with the forecasted values, actual values, and differences.
 
 #### forecast.py
 
-`forecast.py` contains functions for sales forecasting.
+`forecast.py` contains functions for sales forecasting using Prophet with hyperparameter tuning via Optuna.
 
-- **Functionality**:
-    - The `forecast_prophet_optimized` function optimizes the hyperparameters of the Prophet model using Optuna and then fits and predicts future sales.
-    - The function returns the forecast plot, RMSE, MAE, best parameters, and a detailed table with predictions.
+- **forecast_prophet_optimized**:
+    - This function performs optimized forecasting using Optuna.
+    - It returns the forecast plot, RMSE, MAE, best hyperparameters, and a detailed table.
 
 #### objective.py
 
 `objective.py` contains the Optuna objective function for hyperparameter tuning.
 
-- **Functionality**:
-    - The `objective` function defines the search space for hyperparameter tuning.
-    - It builds and fits a Prophet model using the given hyperparameters and returns the mean absolute error as the optimization metric.
+- **Objective Function**:
+    - The function defines the hyperparameters to be optimized:
+        - `seasonality_mode`: Controls how seasonal effects are modeled (additive or multiplicative).
+        - `changepoint_prior_scale`: Determines flexibility in detecting changes.
+        - `seasonality_prior_scale`: Influences the strength of seasonal components.
+        - `fourier_order_monthly`: Sets the number of terms in the Fourier series for monthly seasonality.
+        - `yearly_seasonality`: Enables or disables yearly seasonality.
+        - `weekly_seasonality`: Enables or disables weekly seasonality.
+        - `daily_seasonality`: Enables or disables daily seasonality.
+        - `n_changepoints`: Number of potential changepoints.
+        - `changepoint_range`: Proportion of the history in which to look for changepoints.
+
+    - The function fits a Prophet model and returns the mean absolute error as the optimization metric.
 
 ### data
 
@@ -108,18 +136,11 @@ This directory contains Jupyter notebooks for data exploration.
 
 `data_exploration.ipynb` is a Jupyter notebook for exploring the sales data.
 
-- **Functionality**:
-    - The notebook imports the sales data and performs exploratory data analysis.
-    - It provides insights into the data distribution, trends, and any potential anomalies.
-
 ### requirements
 
 #### requirements.txt
 
 `requirements.txt` contains the project dependencies.
-
-- **Dependencies**:
-    - The file includes necessary packages like Streamlit, Plotly, scikit-learn, pandas, fbprophet, and optuna.
 
 ### readme
 
