@@ -6,10 +6,8 @@ This project is a sales forecasting application using Facebook's Prophet model, 
 
 1. [Overview](#overview)
 2. [Features](#features)
-3. [Project Structure](#project-structure)
-4. [Installation](#installation)
-5. [Usage](#usage)
-6. [Files and Code Explanation](#files-and-code-explanation)
+3. [Usage](#usage)
+4. [Files and Code Explanation](#files-and-code-explanation)
     - [sales_forecasting](#sales_forecasting)
         - [app.py](#app-py)
         - [forecast.py](#forecast-py)
@@ -19,7 +17,7 @@ This project is a sales forecasting application using Facebook's Prophet model, 
     - [requirements](#requirements)
     - [readme](#readme)
     - [license](#license)
-7. [License](#license)
+5. [License](#license)
 
 ## Overview
 
@@ -33,38 +31,9 @@ This project uses historical sales data to predict future sales for various mate
 - **Visualization**: The application displays interactive plots and metrics to evaluate the forecasts.
 - **Tables**: Provides detailed tables comparing actual sales with forecasted sales.
 
-## Project Structure
-
-- `sales_forecasting/` - [Core functionality](#sales_forecasting).
-- `data/` - [Data files](#data).
-- `notebooks/` - [Jupyter notebooks for data exploration](#notebooks).
-- `requirements.txt` - [Project dependencies](#requirements).
-- `README.md` - [Project documentation](#readme).
-- `LICENSE` - [License file](#license).
-
-## Installation
-
-1. **Clone the repository**:
-
-    ```bash
-    git clone https://github.com/yourusername/sales-forecasting.git
-    ```
-
-2. **Install the requirements**:
-
-    ```bash
-    pip install -r requirements.txt
-    ```
-
-3. **Run the app**:
-
-    ```bash
-    streamlit run sales_forecasting/app.py
-    ```
-
 ## Usage
 
-1. **Train Model**: Click the "Train Model" button to train the Prophet model for selected plant-material combinations.
+1. **Train Model**: Click the "Train Model" button to initiate the forecasting process.
 2. **View Results**: Use the dropdown menu to select a combination and view the forecast plot, error metrics, and hyperparameters.
 
 ## Files and Code Explanation
@@ -120,40 +89,4 @@ This directory contains the core functionality of the project.
 
     - The function fits a Prophet model and returns the mean absolute error as the optimization metric.
 
-### data
 
-This directory contains the data files for the project.
-
-#### sales_data.csv
-
-`sales_data.csv` is the historical sales data used for forecasting.
-
-### notebooks
-
-This directory contains Jupyter notebooks for data exploration.
-
-#### data_exploration.ipynb
-
-`data_exploration.ipynb` is a Jupyter notebook for exploring the sales data.
-
-### requirements
-
-#### requirements.txt
-
-`requirements.txt` contains the project dependencies.
-
-### readme
-
-#### README.md
-
-`README.md` is this file containing the project documentation.
-
-### license
-
-#### LICENSE
-
-`LICENSE` is the project license.
-
-## License
-
-This project is licensed under the MIT License.
