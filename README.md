@@ -1,6 +1,5 @@
 # Automated Sales Forecasting for Supply Chain Management with FBProphet, Python, and Streamlit
 
-🚀 New Project Alert: Automated Sales Forecasting with FBProphet & Streamlit!
 
 Over the past weeks, I've been diving deep into the intriguing realm of time-series forecasting. By combining the robustness of FBProphet and the interactivity of Streamlit, I've developed a dashboard that:
 
@@ -49,15 +48,15 @@ This project is a sales forecasting application using Facebook's Prophet model, 
 2. **View Results**: Use the dropdown menu to select a combination and view the forecast plot, error metrics, and hyperparameters.
 3. **Swipe for Dashboard**: Navigate through the dashboard to delve into performance metrics and other visualizations.
 
-## Files and Code Explanation
+## Code Explanation
 
 ### sales_forecasting
 
 This directory contains the core functionality of the project.
 
-#### app.py
+#### fboptuna.py
 
-`app.py` is the main Streamlit application that controls the user interface and functionality.
+`fboptuna.py` is the main Streamlit application that controls the user interface and functionality.
 
 - **Train Model**:
     - The user clicks the "Train Model" button to initiate the forecasting process.
@@ -102,39 +101,9 @@ This directory contains the core functionality of the project.
 
     - The function fits a Prophet model and returns the mean absolute error as the optimization metric.
 
-### data
-
-This directory contains the data files for the project.
-
-#### sales_data.csv
-
-`sales_data.csv` is the historical sales data used for forecasting.
-
-### notebooks
-
-This directory contains Jupyter notebooks for data exploration.
-
-#### data_exploration.ipynb
-
-`data_exploration.ipynb` is a Jupyter notebook for exploring the sales data.
-
-### requirements
-
-#### requirements.txt
-
-`requirements.txt` contains the project dependencies.
-
-### readme
-
-#### README.md
 
 `README.md` is this file containing the project documentation.
 
-### license
-
-#### LICENSE
-
-`LICENSE` is the project license.
 
 ## Advantages for Supply Chain Management
 
@@ -146,6 +115,4 @@ This directory contains Jupyter notebooks for data exploration.
 
 For all my supply chain professionals out there, this tool might be the game-changer you've been waiting for! Let's chat if you're keen on exploring how this can transform your SCM strategy.
 
-## License
 
-This project is licensed under the MIT License.
