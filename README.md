@@ -21,7 +21,7 @@ Over the past weeks, I've been diving deep into the intriguing realm of time-ser
         - [forecast.py](#forecast-py)
         - [objective.py](#objective-py)
 5. [Advantages for Supply Chain Management](#advantages-for-supply-chain-management)
-6. [License](#license)
+
 
 ## Overview
 
