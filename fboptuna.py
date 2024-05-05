@@ -85,7 +85,7 @@ def forecast_prophet_optimized(subset):
 
     forecast = prophet.predict(future)
 
-    if plant == 9111:
+    if plant == 101:
         forecast.loc[forecast['ds'].dt.weekday >= 5, 'yhat'] = 0
     else:
         forecast.loc[forecast['ds'].dt.weekday == 6, 'yhat'] = 0
