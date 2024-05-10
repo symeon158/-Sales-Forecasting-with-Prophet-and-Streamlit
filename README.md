@@ -53,7 +53,7 @@ The Sales Forecasting Dashboard is an interactive web application developed usin
 ### Hyperparameter Optimization
 - **Optuna Integration**: Uses Optuna to optimize Prophet's hyperparameters, aiming to minimize the mean absolute error (MAE).
 - **Parameter Suggestions**: Includes suggestions for seasonality mode, changepoint scales, Fourier orders, and seasonality types.
-  - The function defines the hyperparameters to be optimized:
+  The function defines the hyperparameters to be optimized:
   - `seasonality_mode`: Controls how seasonal effects are modeled (additive or multiplicative).
   - `changepoint_prior_scale`: Determines flexibility in detecting changes.
   - `seasonality_prior_scale`: Influences the strength of seasonal components.
