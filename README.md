@@ -54,15 +54,15 @@ The Sales Forecasting Dashboard is an interactive web application developed usin
 - **Optuna Integration**: Uses Optuna to optimize Prophet's hyperparameters, aiming to minimize the mean absolute error (MAE).
 - **Parameter Suggestions**: Includes suggestions for seasonality mode, changepoint scales, Fourier orders, and seasonality types.
   - The function defines the hyperparameters to be optimized:
-        - `seasonality_mode`: Controls how seasonal effects are modeled (additive or multiplicative).
-        - `changepoint_prior_scale`: Determines flexibility in detecting changes.
-        - `seasonality_prior_scale`: Influences the strength of seasonal components.
-        - `fourier_order_monthly`: Sets the number of terms in the Fourier series for monthly seasonality.
-        - `yearly_seasonality`: Enables or disables yearly seasonality.
-        - `weekly_seasonality`: Enables or disables weekly seasonality.
-        - `daily_seasonality`: Enables or disables daily seasonality.
-        - `n_changepoints`: Number of potential changepoints.
-        - `changepoint_range`: Proportion of the history in which to look for changepoints.
+  - `seasonality_mode`: Controls how seasonal effects are modeled (additive or multiplicative).
+  - `changepoint_prior_scale`: Determines flexibility in detecting changes.
+  - `seasonality_prior_scale`: Influences the strength of seasonal components.
+  - `fourier_order_monthly`: Sets the number of terms in the Fourier series for monthly seasonality.
+  - `yearly_seasonality`: Enables or disables yearly seasonality.
+  - `weekly_seasonality`: Enables or disables weekly seasonality.
+  - `daily_seasonality`: Enables or disables daily seasonality.
+  - `n_changepoints`: Number of potential changepoints.
+  - `changepoint_range`: Proportion of the history in which to look for changepoints.
 
 ### Model Evaluation and Results
 - **Evaluation Metrics**: Computes Root Mean Squared Error (RMSE) and Mean Absolute Error (MAE) to evaluate model performance.
