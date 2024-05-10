@@ -1,6 +1,4 @@
 # Automated Sales Forecasting for Supply Chain Management with FBProphet, Python, and Streamlit
-
-
 Over the past weeks, I've been diving deep into the intriguing realm of time-series forecasting. By combining the robustness of FBProphet and the interactivity of Streamlit, I've developed a dashboard that:
 
 ✅ Allows users to forecast sales for selected products and plants.  
@@ -11,24 +9,24 @@ Over the past weeks, I've been diving deep into the intriguing realm of time-ser
 ✅ Ensures results are stored seamlessly for subsequent analysis and insights.
 
 ## Table of Contents
+- [Project Overview](#project-overview)
+- [Key Components and Functionalities](#key-components-and-functionalities)
+  - [User Interface](#user-interface)
+  - [Data Handling and Preprocessing](#data-handling-and-preprocessing)
+  - [Forecasting Model](#forecasting-model)
+  - [Hyperparameter Optimization](#hyperparameter-optimization)
+  - [Model Evaluation and Results](#model-evaluation-and-results)
+  - [Streamlit App Integration](#streamlit-app-integration)
+- [Technologies and Libraries Used](#technologies-and-libraries-used)
+- [Benefits and Use Cases](#benefits-and-use-cases)
+- [Potential Enhancements](#potential-enhancements)
+- [Conclusion](#conclusion)
+- [Advantages for Supply Chain Management](#Advantages for Supply Chain Management)
 
-1. [Overview](#overview)
-2. [Features](#features)
-3. [Usage](#usage)
-4. [Code Explanation](#files-and-code-explanation)
-    - [sales_forecasting](#sales_forecasting)
-        - [app.py](#app-py)
-        - [forecast.py](#forecast-py)
-        - [objective.py](#objective-py)
-5. [Advantages for Supply Chain Management](#advantages-for-supply-chain-management)
+## Project Overview
+The Sales Forecasting Dashboard is an interactive web application developed using Streamlit. It is designed to forecast sales quantities using time series data, with the help of Facebook Prophet and Optuna for hyperparameter optimization. This dashboard provides users with visualizations of forecasted sales and key metrics, facilitating data-driven decision-making.
 
-
-## Overview
-
-This project is a sales forecasting application using Facebook's Prophet model, enhanced with hyperparameter tuning using Optuna, and built with a user-friendly interface in Streamlit.
-
-## Features
-
+## Key Components and Functionalities
 - **Hyperparameter Tuning**: Optuna optimizes Prophet's hyperparameters for improved forecasting accuracy.
 - **User Interface**: Streamlit provides an intuitive interface for selecting plant-material combinations and viewing forecasts.
 - **Forecasting**: Prophet forecasts future sales based on historical data.
@@ -37,53 +35,25 @@ This project is a sales forecasting application using Facebook's Prophet model, 
 - **Country-Specific Holidays**: Incorporates country-specific holidays and weekends for more accurate predictions.
 - **Cross-Validation**: Provides cross-validation results for understanding the model's capabilities.
 
-## Usage
+### User Interface
+- **Streamlit Layout**: The app features a clean and interactive layout with buttons and dropdowns for user interaction.
+- **File Upload**: (Assumed as part of initial setup) Users upload a CSV file containing sales data.
+- **Model Training Button**: Users can initiate the model training process through a simple button click.
+- **Selection Dropdown**: Allows users to select different plant and material combinations to view specific forecast results.
 
-1. **Train Model**: Click the "Train Model" button to initiate the forecasting process.
-2. **View Results**: Use the dropdown menu to select a combination and view the forecast plot, error metrics, and hyperparameters.
-3. **Swipe for Dashboard**: Navigate through the dashboard to delve into performance metrics and other visualizations.
+### Data Handling and Preprocessing
+- **Data Loading**: Reads sales data from a CSV file and converts the 'Document Date' column to datetime format.
+- **Data Filtering**: Filters data based on selected materials to focus the analysis.
+- **Aggregation**: Aggregates sales quantity by day, plant, and material, preparing the data for time series forecasting.
 
-## Code Explanation
+### Forecasting Model
+- **Facebook Prophet**: Utilizes Prophet for time series forecasting, which is well-suited for handling daily data with seasonality and holidays.
+- **Seasonality and Trends**: Adds monthly seasonality to the model to capture periodic patterns.
 
-### sales_forecasting
-
-This directory contains the core functionality of the project.
-
-#### fboptuna.py
-
-`fboptuna.py` is the main Streamlit application that controls the user interface and functionality.
-
-- **Train Model**:
-    - The user clicks the "Train Model" button to initiate the forecasting process.
-    - The `compute_forecasts` function generates forecasts for each plant-material combination.
-    - The results, including plots, metrics, and tables, are stored in `st.session_state`.
-  
-- **Dropdown Menu**:
-    - The user selects a plant-material combination from the dropdown menu to view specific results.
-
-- **Visualization**:
-    - The function `plotly_chart` displays interactive plots using Plotly.
-  
-- **Metrics**:
-    - The application displays RMSE and MAE metrics for the forecasts.
-
-- **Table**:
-    - The application displays a table with the forecasted values, actual values, and differences.
-
-#### forecast.py
-
-`forecast.py` contains functions for sales forecasting using Prophet with hyperparameter tuning via Optuna.
-
-- **forecast_prophet_optimized**:
-    - This function performs optimized forecasting using Optuna.
-    - It returns the forecast plot, RMSE, MAE, best hyperparameters, and a detailed table.
-
-#### objective.py
-
-`objective.py` contains the Optuna objective function for hyperparameter tuning.
-
-- **Objective Function**:
-    - The function defines the hyperparameters to be optimized:
+### Hyperparameter Optimization
+- **Optuna Integration**: Uses Optuna to optimize Prophet's hyperparameters, aiming to minimize the mean absolute error (MAE).
+- **Parameter Suggestions**: Includes suggestions for seasonality mode, changepoint scales, Fourier orders, and seasonality types.
+  - The function defines the hyperparameters to be optimized:
         - `seasonality_mode`: Controls how seasonal effects are modeled (additive or multiplicative).
         - `changepoint_prior_scale`: Determines flexibility in detecting changes.
         - `seasonality_prior_scale`: Influences the strength of seasonal components.
@@ -94,10 +64,36 @@ This directory contains the core functionality of the project.
         - `n_changepoints`: Number of potential changepoints.
         - `changepoint_range`: Proportion of the history in which to look for changepoints.
 
-    - The function fits a Prophet model and returns the mean absolute error as the optimization metric.
+### Model Evaluation and Results
+- **Evaluation Metrics**: Computes Root Mean Squared Error (RMSE) and Mean Absolute Error (MAE) to evaluate model performance.
+- **Plotly Visualizations**: Generates interactive plots of the forecasted sales using Plotly.
+- **Result Tables**: Provides a detailed table showing actual vs. predicted quantities, differences, and percentage differences.
 
+### Streamlit App Integration
+- **Session State Management**: Maintains model training state and results across user interactions.
+- **Dynamic Content Display**: Updates plots and metrics based on user-selected plant and material combinations.
 
-`README.md` is this file containing the project documentation.
+## Technologies and Libraries Used
+- **Streamlit**: For building the interactive web application.
+- **Pandas**: For data manipulation and preprocessing.
+- **Plotly Graph Objects**: For creating interactive and visually appealing plots.
+- **Facebook Prophet**: For robust time series forecasting.
+- **Optuna**: For efficient hyperparameter optimization.
+- **Scikit-learn**: For computing evaluation metrics.
+
+## Benefits and Use Cases
+- **User-Friendly Interface**: The dashboard is designed for ease of use, enabling non-technical users to perform sophisticated sales forecasting.
+- **Accurate Forecasting**: Leveraging Prophet and Optuna ensures accurate and reliable forecasts, accommodating seasonal trends and changes.
+- **Comprehensive Analysis**: Provides detailed insights into forecast performance through interactive plots and comprehensive tables.
+
+## Potential Enhancements
+- **Automated Data Upload**: Incorporate file upload functionality directly into the app.
+- **Expanded Forecasting Options**: Add support for more complex seasonality and holidays.
+- **Real-Time Data Integration**: Enable real-time data updates for continuous forecasting.
+- **Enhanced Visualization**: Introduce additional chart types and customization options.
+
+## Conclusion
+The Sales Forecasting Dashboard is a powerful tool for businesses to forecast sales quantities effectively. By integrating advanced time series forecasting techniques with a user-friendly interface, it enables users to make informed decisions based on accurate predictions and comprehensive analysis.
 
 
 ## Advantages for Supply Chain Management
