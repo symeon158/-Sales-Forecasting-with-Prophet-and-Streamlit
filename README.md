@@ -21,7 +21,7 @@ Over the past weeks, I've been diving deep into the intriguing realm of time-ser
 - [Benefits and Use Cases](#benefits-and-use-cases)
 - [Potential Enhancements](#potential-enhancements)
 - [Conclusion](#conclusion)
-- [Advantages for Supply Chain Management](#Advantages for Supply Chain Management)
+- [Advantages for Supply Chain Management](#advantages-for-Supply-Chain-Management)
 
 ## Project Overview
 The Sales Forecasting Dashboard is an interactive web application developed using Streamlit. It is designed to forecast sales quantities using time series data, with the help of Facebook Prophet and Optuna for hyperparameter optimization. This dashboard provides users with visualizations of forecasted sales and key metrics, facilitating data-driven decision-making.
