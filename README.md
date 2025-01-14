@@ -8,6 +8,9 @@ Over the past weeks, I've been diving deep into the intriguing realm of time-ser
 ✅ Computes critical performance metrics like RMSE, MAE, and MAPE to evaluate forecasts.  
 ✅ Ensures results are stored seamlessly for subsequent analysis and insights.
 
+![image](https://github.com/user-attachments/assets/4355f333-c642-43b2-81c5-f0b3c708ba57)
+
+
 ## Table of Contents
 - [Project Overview](#project-overview)
 - [Key Components and Functionalities](#key-components-and-functionalities)
