@@ -82,7 +82,6 @@ The Sales Forecasting Dashboard is an interactive web application developed usin
 
 - ![image](https://github.com/user-attachments/assets/03762d5f-57d7-49f5-baa8-c546eca61495)
 
-
 - ![image](https://github.com/user-attachments/assets/4d746275-a59f-4fcd-a42a-888814d22c00)
 
 
