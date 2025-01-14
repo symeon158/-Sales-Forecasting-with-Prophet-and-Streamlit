@@ -76,6 +76,17 @@ The Sales Forecasting Dashboard is an interactive web application developed usin
 - **Session State Management**: Maintains model training state and results across user interactions.
 - **Dynamic Content Display**: Updates plots and metrics based on user-selected plant and material combinations.
 
+- ![image](https://github.com/user-attachments/assets/0387d944-0026-4be6-9a65-9bcb08437138)
+
+- ![image](https://github.com/user-attachments/assets/527cd32a-b8a9-4563-813d-9cec7a64a1b1)
+
+- ![image](https://github.com/user-attachments/assets/03762d5f-57d7-49f5-baa8-c546eca61495)
+
+
+- ![image](https://github.com/user-attachments/assets/4d746275-a59f-4fcd-a42a-888814d22c00)
+
+
+
 ## Technologies and Libraries Used
 - **Streamlit**: For building the interactive web application.
 - **Pandas**: For data manipulation and preprocessing.
